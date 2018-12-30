@@ -1,0 +1,40 @@
+
+<head>
+<style>
+body {background-color: #FFDAB9;}
+
+.question{
+	font-family: 'Futura';
+}
+
+
+</style>
+</head>
+
+{% if not complete %}
+	<form action="{% url 'submit_quiz' lesson.id %}" method="post">
+	{% csrf_token %}
+	{% for question in questions %}
+		<div class="question">{{question.question_text}}</div>
+		{% for choice in question.choice_set.all %}
+			<div><input type="radio" name = "{{question.id}}" value ="{{choice.id}}">
+			<label for="choice{{ forloop.counter}}">{{choice.choice_text}}</label></div>
+		{% endfor %}
+	{% endfor %}
+	<input type="submit" value="Submit">
+	</form>
+{% else %}
+	<div>Challenge Complete!</div>
+	<div>Score was <p id="score"></p></div>
+{% endif %}
+
+
+
+
+<script type="text/javascript">
+function toPercent(number) {
+var percent = number*100+"%";
+return percent; 
+}
+document.getElementById("score").innerHTML = toPercent({{card.score}});
+</script>

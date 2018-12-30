@@ -1,0 +1,66 @@
+
+
+
+
+<head>
+<style>
+body {background-color: #FFDAB9;}
+
+.button1{
+	background-color: #BDFFB9	; 
+    border: none;
+    color: black;
+    padding: 20px 40px;
+    border-radius: 100px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    font-family:'Futura';
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    transform: translateY(600%);
+}
+
+.button2{
+	background-color: #FCB9FF; /* Green */
+    border: none;
+    color: black;
+    padding: 20px 40px;
+    border-radius: 100px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    font-family:'Futura';
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    transform: translateY(600%);
+}
+
+.title{
+	font-family:'Futura';
+	text-align: center;
+	font-size: 40px;
+	transform: translateY(400%);
+}
+.title2{
+	font-family:'Futura';
+	text-align: center;
+	font-size: 20px;
+	transform: translateY(600%);
+}
+
+</style>
+</head>
+
+<div class="title">knowledge_test</div>
+
+
+<header>
+	<a class="button1" href="{% url 'login_page' %}">login<a><br>
+	<a class="button2" href="{% url 'create_page' %}">sign up</a>
+</header>
+

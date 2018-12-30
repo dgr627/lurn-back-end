@@ -1,0 +1,83 @@
+
+<head>
+<style>
+body {background-color: #FFDAB9;}
+
+
+.username{
+    border: none;
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-family:'Futura';
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.heading{
+    border: none;
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 22px;
+    font-family:'Futura';
+    text-align: center;
+}
+
+.item{
+    border: none;
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    font-family:'Futura';
+    padding: 5px 0px;
+    border-radius: 10px; 
+    text-align: center;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.spacer{
+	padding: 3px 3px;
+}
+
+.logout{
+	border: none;
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-family:'Futura';
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+
+</style>
+</head>
+
+
+<div class="username"> {{username}}</div>
+<br>
+
+<div class="heading">New Modules</div>
+<div class="spacer"></div>
+{% for lesson in incomplete_lessons %}
+ 	<div><a class = "item" href="/courses/{{lesson.id}}/view">{{ lesson.lesson_name }}</a></div>
+ 	<div class="spacer"></div>
+{% endfor %}
+<br>
+<div class="heading">Past Modules</div>
+<div class="spacer"></div>
+{% for lesson in completed_lessons %}
+ 	<div><a class = "item" href="/courses/{{lesson.id}}/view">{{ lesson.lesson_name }}</a></div>
+ 	<div class="spacer"></div>
+{% endfor %}
+<br>
+<br>
+<a class="logout" href="/courses/sign_out">logout</a>

@@ -1,0 +1,17 @@
+<head>
+<style>
+body {background-color: #FFDAB9;}
+
+</style>
+</head>
+
+<form action="{% url 'create_action' %}" method="post">
+	{% csrf_token %}
+	Username:<br>
+	<input type="text" name = "username">
+	<br>
+	Password:<br>
+	<input type="text" name = "password">
+	<br>
+	<input type="submit" value="Create Account">
+</form>

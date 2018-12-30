@@ -1,0 +1,41 @@
+
+<head>
+<style>
+body {background-color: #FFDAB9}
+
+.button1{
+	background-color: #BDFFB9	; 
+    border: none;
+    color: black;
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    font-family:'Futura';
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    transform: translateY(100%);
+}
+
+.login_button{
+    color: black;
+    padding: 20px 40px;
+}
+
+
+</style>
+</head>
+
+<form class= "button1" action="{% url 'login_action' %}" method="post">
+	{% csrf_token %}
+	username<br>
+	<input type="text" name = "username">
+	<br>
+	password<br>
+	<input type="text" name = "password">
+	<br>
+	<button class = "login_button" type="submit" value="Login">
+</form>
