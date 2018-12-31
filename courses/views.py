@@ -23,7 +23,7 @@ from .serializers import *
 def start(request):
 	return render(request, 'courses/start.html')
 
-
+@api_view(['POST', 'GET'])
 def index(request):
     lesson_list = Lesson.objects.order_by('-pub_date')
     completed_lessons=[]
@@ -92,7 +92,7 @@ def create_action(request):
 		login(request, user)
 		return index(request)
 
-@login_required(login_url = '/courses/login')
+@api_view(['POST', 'GET'])
 def display_lesson(request, lesson_id):
 	lesson = get_object_or_404(Lesson, pk=lesson_id)
 	user = request.user
@@ -114,6 +114,7 @@ def display_lesson(request, lesson_id):
 	'choices' : choices,}
 	return render(request, 'courses/lesson_content.html', context)
 
+@api_view(['POST', 'GET'])
 def display_quiz(request, lesson_id):
 	lesson = get_object_or_404(Lesson, pk=lesson_id)
 	user = request.user
@@ -136,6 +137,7 @@ def display_quiz(request, lesson_id):
 	'complete': card.quiz_complete,}
 	return render(request, 'courses/display_quiz.html', context)
 
+@api_view(['POST', 'GET'])
 def submit_quiz(request, lesson_id):
 	lesson = get_object_or_404(Lesson, pk=lesson_id)
 	user = request.user
